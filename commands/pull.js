@@ -1,6 +1,5 @@
 const exec = require("../utils/exec");
 const config = require("../config.json");
-const chalk = require("chalk");
 const checkConfig = require("../utils/check-config");
 
 module.exports = function(program){

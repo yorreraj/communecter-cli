@@ -4,11 +4,11 @@ const checkConfig = require("../utils/check-config");
 
 module.exports = function(program){
     program
-    .command('checkout <branch>')
+    .command('branch')
     .option('-m, --module <modules...>', 'Spécifier un module')
     .option('-e --exclude <modules...>', "Exclure des modules")
-    .description('Checkout to branch')
-    .action((branch, options) => {
+    .description('Afficher le branche actuel')
+    .action((options) => {
         if(checkConfig()){
             let modules = options.module?options.module:config.modules,
                 excludeModules = options.exclude?options.exclude:[];
@@ -19,8 +19,8 @@ module.exports = function(program){
                 path += module;
 
                 exec({
-                    title: `checkout module ${module}`,
-                    cmd: `cd ${path} && git checkout ${branch}`
+                    title: `Branche du module ${module}`,
+                    cmd: `cd ${path} && git branch`
                 })
             })
         }

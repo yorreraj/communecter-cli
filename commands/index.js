@@ -1,4 +1,4 @@
-const COMMANDS = ["clear-cache", "checkout", "pull", "config"]
+const COMMANDS = ["clear-cache", "checkout", "pull", "config", "branch"]
 
 module.exports = function(program){
     COMMANDS.forEach(command => {
