@@ -7,6 +7,7 @@ module.exports = function(program){
     .command('config')
     .option('-m, --modules <modules...>', 'Remplacer tout les modules existant avec les nouveaux.')
     .option('-p, --projectpath <projectpath>', 'Chemin racine du projet')
+    .option('-mu, --mongoUrl <mongoUrl>', 'Url de connexion au mongodb')
     .option('-addm, --addmodules <modules...>', 'Ajouter plus des modules')
     .option('-rmm, --removemodules <modules...>', 'Rétirer de module')
     .description('Configuration du CLI')
@@ -21,6 +22,9 @@ module.exports = function(program){
 
             if(options.projectpath)
                 newConfig.projectpath = options.projectpath+"/"
+
+            if(options.mongoUrl)
+                newConfig.mongoUrl = options.mongoUrl
 
             if(options.removemodules)
                 newConfig.modules = newConfig.modules.filter(module => options.removemodules.indexOf(module)<0)
